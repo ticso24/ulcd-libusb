@@ -83,7 +83,7 @@ int
 main(int argc, char *argv[]) {
 	int res;
 	char* tmp;
-	char ch;
+	int ch;
 	int port;
 	struct usb_bus *busses;
 	struct usb_bus *bus;
@@ -135,7 +135,7 @@ main(int argc, char *argv[]) {
 
 	port = 0;
 
-	while ((ch = getopt(argc, argv, "ib:c:d:p:s:")) != -1)
+	while ((ch = getopt(argc, argv, "ib:c:d:p:s:")) != -1) {
 		switch (ch) {
 		case 'i':	/* init LCD */
 			res = usb_control_msg(lcd, USB_TYPE_VENDOR, VENDOR_LCD_RESET, 0, port, NULL, 0, 1000);
@@ -181,6 +181,7 @@ main(int argc, char *argv[]) {
 			usage();
 			/* NOTREACHED */
 		}
+	}
 	argc -= optind;
 	argv += optind;
 
