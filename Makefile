@@ -31,7 +31,7 @@
 # $Rev$
 #
 
-CC = gcc
+CC = cc
 CFLAGS = -g -Wall -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lusb
 
